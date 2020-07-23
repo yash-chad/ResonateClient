@@ -3,9 +3,7 @@ import { GET_PROFILE, GET_EXPENSE, ADD_EXPENSE, DELETE_EXPENSE } from "./types";
 
 export const getProfile = () => (dispatch) => {
   axios
-    .get(
-      "https://ancient-mountain-80140.herokuapp.com/api/users/api/users/getProfile"
-    )
+    .get("/api/users/getProfile")
     .then((res) => {
       console.log(res.data);
       dispatch({
@@ -20,7 +18,7 @@ export const getProfile = () => (dispatch) => {
 
 export const getExpenses = () => (dispatch) => {
   axios
-    .get("https://ancient-mountain-80140.herokuapp.com/api/users/api/expense")
+    .get("/api/expense")
     .then((res) => {
       console.log(res.data);
       dispatch({
@@ -35,14 +33,11 @@ export const getExpenses = () => (dispatch) => {
 
 export const addExpense = (title, amount, category, callback) => (dispatch) => {
   axios
-    .post(
-      "https://ancient-mountain-80140.herokuapp.com/api/users/api/expense/add",
-      {
-        title: title,
-        amount: amount,
-        category: category,
-      }
-    )
+    .post("/api/expense/add", {
+      title: title,
+      amount: amount,
+      category: category,
+    })
     .then((res) => {
       dispatch({
         type: ADD_EXPENSE,
@@ -57,8 +52,7 @@ export const addExpense = (title, amount, category, callback) => (dispatch) => {
 };
 
 export const deleteExpense = (id, callback) => (dispatch) => {
-  const url =
-    "https://ancient-mountain-80140.herokuapp.com/api/users/api/expense/" + id;
+  const url = "/api/expense/" + id;
   axios.get(url).then((res) => {
     dispatch({
       type: DELETE_EXPENSE,

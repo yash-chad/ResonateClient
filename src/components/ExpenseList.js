@@ -10,6 +10,7 @@ import Chart from "./Chartcomponent";
 class ExpenseList extends Component {
   componentDidMount() {
     this.props.getExpenses();
+    console.log(this.props.expenses);
   }
   handleSubmit = (e) => {
     e.preventDefault();

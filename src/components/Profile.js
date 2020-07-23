@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 
 class Profile extends Component {
   componentDidMount() {
+    console.log("In profile");
     this.props.getProfile();
+    console.log(this.props.user);
   }
   render() {
     return (
